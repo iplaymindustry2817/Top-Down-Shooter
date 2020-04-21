@@ -3,7 +3,7 @@ extends KinematicBody2D
 var can_dash: = true
 var can_fire: = true
 var bullet = preload("res://src/objects/Bullet.tscn")
-export var speed: = 150
+export var speed: = 9000
 export var bullet_speed: = 300
 var fire_rate: = 0.3
 var dash_rate: = 1.0
@@ -53,7 +53,7 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(dash_rate - 0.1), "timeout")
 		can_dash = true
 	
-	move_and_slide(direction * speed)
+	move_and_slide(direction * speed * delta)
 	if direction == Vector2.ZERO and !shooting and !reloading:
 		$Graphics/AnimationPlayer.stop()
 	else:
