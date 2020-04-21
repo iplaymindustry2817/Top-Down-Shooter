@@ -23,11 +23,15 @@ func _process(delta):
 		$Graphics/Head/M4A1.visible = false
 		$BulletPoint.position.x = 23.981
 		$Graphics/Muzzle_Flash.position.x = 37.063
+		$CanvasLayer/M4A1.visible = false
+		$CanvasLayer/Glock.visible = true
 	if Input.is_action_just_pressed("2"):
 		set_gun(0.15, 20, 20, 2, 15)
 		$Graphics/Head/M4A1.visible = true
 		$BulletPoint.position.x = 77.211
 		$Graphics/Muzzle_Flash.position.x = 77.201
+		$CanvasLayer/M4A1.visible = true
+		$CanvasLayer/Glock.visible = false
 	if Input.is_action_pressed("fire") and can_fire:
 		shooting = true
 		var BulletI = bullet.instance()

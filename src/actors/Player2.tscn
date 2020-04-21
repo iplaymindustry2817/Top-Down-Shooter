@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player2.gd" type="Script" id=2]
 [ext_resource path="res://assets/barreta_m9-Dion_Stapper-1010051237.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/Gun_Cocking_Fast-Mike_Koenig-465593588.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sprites/M4A1_Side.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/M4A1.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/Glock.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.7059
@@ -261,3 +263,15 @@ stream = ExtResource( 3 )
 
 [node name="Reload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="M4A1" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 862.386, 512.62 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="Glock" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 867.938, 518.172 )
+texture = ExtResource( 7 )

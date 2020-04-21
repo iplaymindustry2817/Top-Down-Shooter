@@ -48,3 +48,18 @@ position = Vector2( 549.214, 293.624 )
 
 [node name="Enemy_Test3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 726.196, 298.407 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 72.7064
+margin_top = 70.4344
+margin_right = 177.706
+margin_bottom = 169.434
+text = "WASD to move
+LClick to shoot
+1 for pistol
+2 for Assult Rifle
+Space to dash
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
