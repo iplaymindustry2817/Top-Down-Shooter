@@ -31,19 +31,15 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("1"):
 		set_gun(0.3, 5, 1, 20, "pistol")
-		$Graphics/Head/M4A1.visible = false
-		$BulletPoint.position.x = 23.981
-		$Graphics/Muzzle_Flash.position.x = 37.063
-		$CanvasLayer/M4A1.visible = false
-		$CanvasLayer/Glock.visible = true
+		if current_gun == "pistol":
+			if pistol_ammo <= 0:
+				reload()
 		
 	if Input.is_action_just_pressed("2"):
 		set_gun(0.15, 20, 2, 15, "AR")
-		$Graphics/Head/M4A1.visible = true
-		$BulletPoint.position.x = 77.211
-		$Graphics/Muzzle_Flash.position.x = 77.201
-		$CanvasLayer/M4A1.visible = true
-		$CanvasLayer/Glock.visible = false
+		if current_gun == "AR":
+			if AR_ammo <= 0:
+				reload()
 	if Input.is_action_pressed("fire") and can_fire:
 		shooting = true
 		var BulletI = bullet.instance()
@@ -114,11 +110,23 @@ func reload():
 		AR_ammo = clip_size
 	reloading = false
 	
-func set_gun(fr, clipS, reload, Gdamage, current_g):
+func set_gun(fr, clipS, reload, Gdamage, new_gun):
 	fire_rate = fr #AYY 100 lines of code!!
 	clip_size = clipS
 	reload_time = reload
 	damage = Gdamage
-	current_gun = current_g
+	current_gun = new_gun
+	if new_gun == "pistol":
+		$Graphics/Head/M4A1.visible = false
+		$BulletPoint.position.x = 23.981
+		$Graphics/Muzzle_Flash.position.x = 37.063
+		$CanvasLayer/M4A1.visible = false
+		$CanvasLayer/Glock.visible = true
+	if new_gun == "AR":
+		$Graphics/Head/M4A1.visible = true
+		$BulletPoint.position.x = 77.211
+		$Graphics/Muzzle_Flash.position.x = 77.201
+		$CanvasLayer/M4A1.visible = true
+		$CanvasLayer/Glock.visible = false
 	
 
