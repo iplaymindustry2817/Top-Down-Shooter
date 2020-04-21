@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 export var health: = 100
 onready var Blood_Particles = preload("res://src/objects/blood_effect.tscn")

@@ -14,19 +14,30 @@ var reload_time: = 1
 var reloading: = false
 var shooting: = false
 var damage: = 20
+var pistol_ammo: = 5
+var AR_ammo: = 20
+onready var current_ammo: Label = $CanvasLayer/Current_Ammo
+onready var max_ammo: Label = $CanvasLayer/Max_Ammo
+var ammo_type: = 0
+var current_gun: = "pistol"
 
 func _process(delta):
 	look_at(get_global_mouse_position())
+	if current_gun == "pistol":
+		current_ammo.text = ("%s") % pistol_ammo
+	if current_gun == "AR":
+		current_ammo.text = ("%s") % AR_ammo
+	max_ammo.text = ("%s") % clip_size
 	
 	if Input.is_action_just_pressed("1"):
-		set_gun(0.3, 5, 5, 1, 20)
+		set_gun(0.3, 5, 1, 20, "pistol")
 		$Graphics/Head/M4A1.visible = false
 		$BulletPoint.position.x = 23.981
 		$Graphics/Muzzle_Flash.position.x = 37.063
 		$CanvasLayer/M4A1.visible = false
 		$CanvasLayer/Glock.visible = true
 	if Input.is_action_just_pressed("2"):
-		set_gun(0.15, 20, 20, 2, 15)
+		set_gun(0.15, 20, 2, 15, "AR")
 		$Graphics/Head/M4A1.visible = true
 		$BulletPoint.position.x = 77.211
 		$Graphics/Muzzle_Flash.position.x = 77.201
@@ -48,12 +59,21 @@ func _process(delta):
 		Flash.emitting = true
 		get_tree().get_root().add_child(Flash)
 		can_fire = false
-		ammo -= 1
+		if current_gun == "pistol":
+			pistol_ammo -= 1
+		if current_gun == "AR":
+			AR_ammo -= 1
 		yield(get_tree().create_timer(fire_rate), "timeout")
-		if ammo <= 0:
-			reload()
-		elif ammo > 0:
-			can_fire = true
+		if current_gun == "pistol":
+			if pistol_ammo <= 0:
+				reload()
+			elif pistol_ammo > 0:
+				can_fire = true
+		if current_gun == "AR":
+			if AR_ammo <= 0:
+				reload()
+			elif AR_ammo > 0:
+				can_fire = true
 		shooting = false
 
 func _physics_process(delta):
@@ -87,12 +107,18 @@ func reload():
 	$Reload.play()
 	yield(get_tree().create_timer(reload_time), "timeout")
 	can_fire = true
-	ammo = clip_size
+	if current_gun == "pistol":
+		pistol_ammo = clip_size
+	if current_gun == "AR":
+		AR_ammo = clip_size
 	reloading = false
 	
-func set_gun(fr, amo, clipS, reload, Gdamage):
-	fire_rate = fr
-	ammo = amo
+func set_gun(fr, clipS, reload, Gdamage, current_gun):
+	fire_rate = fr #AYY 100 lines of code!!
+	if current_gun == "pistol":
+		ammo = pistol_ammo
+	if current_gun == "AR":
+		ammo = AR_ammo
 	clip_size = clipS
 	reload_time = reload
 	damage = Gdamage
