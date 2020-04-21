@@ -36,6 +36,7 @@ func _process(delta):
 		$Graphics/Muzzle_Flash.position.x = 37.063
 		$CanvasLayer/M4A1.visible = false
 		$CanvasLayer/Glock.visible = true
+		
 	if Input.is_action_just_pressed("2"):
 		set_gun(0.15, 20, 2, 15, "AR")
 		$Graphics/Head/M4A1.visible = true
@@ -113,13 +114,11 @@ func reload():
 		AR_ammo = clip_size
 	reloading = false
 	
-func set_gun(fr, clipS, reload, Gdamage, current_gun):
+func set_gun(fr, clipS, reload, Gdamage, current_g):
 	fire_rate = fr #AYY 100 lines of code!!
-	if current_gun == "pistol":
-		ammo = pistol_ammo
-	if current_gun == "AR":
-		ammo = AR_ammo
 	clip_size = clipS
 	reload_time = reload
 	damage = Gdamage
+	current_gun = current_g
+	
 
