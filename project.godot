@@ -19,6 +19,11 @@ config/name="Top Down Shooter"
 run/main_scene="res://src/World.tscn"
 config/icon="res://assets/sprites/icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [input]
 
 up={

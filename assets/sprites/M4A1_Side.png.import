@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player.png-e589e73e3bcf93afdbd52739624fb792.stex"
+path="res://.import/M4A1_Side.png-2d94872ff055ad8e033258d4ba01c8c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Player.png"
-dest_files=[ "res://.import/Player.png-e589e73e3bcf93afdbd52739624fb792.stex" ]
+source_file="res://assets/sprites/M4A1_Side.png"
+dest_files=[ "res://.import/M4A1_Side.png-2d94872ff055ad8e033258d4ba01c8c1.stex" ]
 
 [params]
 
