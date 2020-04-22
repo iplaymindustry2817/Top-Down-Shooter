@@ -77,15 +77,19 @@ func _physics_process(delta):
 func reload():
 	reloading = true
 	if current_gun == "pistol":
+		$CanvasLayer/AnimationPlayer.play("Pistol_Reload")
 		pistol_ammo = clip_size
+		$pistol_reload.play()
 	if current_gun == "AR":
+		$CanvasLayer/AnimationPlayer.play("AR_Reload")
 		AR_ammo = clip_size
+		$AR_reload.play()
 	can_fire = false
 	$Graphics/AnimationPlayer.play("Reload")
-	$Reload.play()
 	yield(get_tree().create_timer(reload_time), "timeout")
 	can_fire = true
 	reloading = false
+	
 	
 func set_gun(fr, clipS, reload, Gdamage, new_gun):
 	fire_rate = fr #AYY 100 lines of code!!
@@ -114,7 +118,10 @@ func fire():
 	BulletI.rotation_degrees = rotation_degrees
 	BulletI.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().add_child(BulletI)
-	$GunshotSound.play()
+	if current_gun == "pistol":
+		$pistol_gunshot.play()
+	if current_gun == "AR":
+		$AR_gunshot.play()
 	$Graphics/AnimationPlayer.play("Shoot")
 	var Flash = Muzzle_Flash.instance()
 	Flash.position = $Graphics/Muzzle_Flash.global_position

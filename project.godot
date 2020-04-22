@@ -89,4 +89,4 @@ reload={
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/Sounds/default_env.tres"
