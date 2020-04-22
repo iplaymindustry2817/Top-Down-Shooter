@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/actors/Player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/DownDownTempTiles.png" type="Texture" id=2]
-[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -71,18 +70,3 @@ R to Reload
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Enemy" parent="Label" instance=ExtResource( 4 )]
-position = Vector2( -711.779, 36.0244 )
-
-[node name="Enemy2" parent="Label" instance=ExtResource( 4 )]
-position = Vector2( -726.059, 142.331 )
-
-[node name="Enemy3" parent="Label" instance=ExtResource( 4 )]
-position = Vector2( -687.979, 248.638 )
-
-[node name="Enemy4" parent="Label" instance=ExtResource( 4 )]
-position = Vector2( -718.126, 359.705 )
-
-[node name="Enemy5" parent="Label" instance=ExtResource( 4 )]
-position = Vector2( -613.406, 439.038 )

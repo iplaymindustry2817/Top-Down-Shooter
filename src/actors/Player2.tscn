@@ -201,6 +201,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Head/M4A1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.02386, -47.6092 ), Vector2( 1.02388, -42.3277 ), Vector2( -0.296513, -48.4894 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Head/SMG:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.3507, -29.9408 ), Vector2( 0.470474, -21.1382 ), Vector2( 0.470444, -30.3809 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.6
@@ -380,7 +404,7 @@ region_enabled = true
 region_rect = Rect2( 44, 16, 32, 32 )
 
 [node name="arm L" type="Sprite" parent="Graphics/Head"]
-position = Vector2( -11.8018, -14.045 )
+position = Vector2( -12.1919, -11.2165 )
 rotation = 0.00912908
 z_index = -1
 texture = ExtResource( 1 )
@@ -388,7 +412,7 @@ region_enabled = true
 region_rect = Rect2( 3, 9, 30, 38 )
 
 [node name="arm R" type="Sprite" parent="Graphics/Head"]
-position = Vector2( 12.972, -17.4588 )
+position = Vector2( 11.7041, -12.6796 )
 rotation = 0.0172652
 z_index = -2
 texture = ExtResource( 1 )
@@ -397,7 +421,7 @@ region_rect = Rect2( 90, 5, 30, 41 )
 
 [node name="M4A1" type="Sprite" parent="Graphics/Head"]
 visible = false
-position = Vector2( 1.02386, -47.6092 )
+position = Vector2( -0.296513, -48.4894 )
 rotation = -0.00273978
 z_index = -2
 texture = ExtResource( 6 )
@@ -405,7 +429,7 @@ region_rect = Rect2( 90, 5, 30, 41 )
 
 [node name="SMG" type="Sprite" parent="Graphics/Head"]
 visible = false
-position = Vector2( 1.3507, -29.9408 )
+position = Vector2( 0.470444, -30.3809 )
 z_index = -1
 texture = ExtResource( 12 )
 
@@ -494,13 +518,14 @@ anims/SMG_Reload = SubResource( 10 )
 anims/hit = SubResource( 9 )
 
 [node name="Relaod_Bar_BG" type="Sprite" parent="CanvasLayer"]
-visible = false
 position = Vector2( 829.978, 437.184 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 7, 7, 115, 18 )
 
 [node name="Relaod_Bar_FG" type="Sprite" parent="CanvasLayer/Relaod_Bar_BG"]
+position = Vector2( -56, 0 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 8, 28, 113, 16 )
@@ -513,3 +538,8 @@ color = Color( 0.984314, 0.0196078, 0.0196078, 0.219608 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Shaking_Camera" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
