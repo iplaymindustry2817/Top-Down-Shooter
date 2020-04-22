@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/sprites/icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/Sounds/Gun_Cocking_Fast-Mike_Koenig-465593588.wav" type="AudioStream" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Idle"
 length = 0.1
 loop = true
@@ -60,7 +60,7 @@ tracks/3/keys = {
 "values": [ 0.523058 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Head/arm L:z_index")
@@ -135,7 +135,7 @@ tracks/5/keys = {
 "values": [ 0.989225, 11.8678, 0.989225 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -175,7 +175,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -203,10 +203,10 @@ tracks/1/keys = {
 "values": [ Vector2( 12.9721, -13.5574 ), Vector2( 12.972, -17.4588 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 17.3793
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=6]
 lifetime_randomness = 0.56
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
@@ -215,9 +215,9 @@ initial_velocity_random = 0.86
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 90.4
-scale = 0.5
+scale = 0.25
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=7]
 lifetime_randomness = 1.0
 flag_disable_z = true
 spread = 180.0
@@ -263,24 +263,24 @@ region_enabled = true
 region_rect = Rect2( 94, 9, 30, 41 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/Idle = SubResource( 2 )
-anims/Reload = SubResource( 3 )
-anims/Shoot = SubResource( 4 )
-anims/Walk = SubResource( 5 )
+anims/Idle = SubResource( 1 )
+anims/Reload = SubResource( 2 )
+anims/Shoot = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="Muzzle_Flash" type="Particles2D" parent="Sprite"]
 position = Vector2( 36.9178, 1.0732 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.75378, 0.751026 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Blood" type="Particles2D" parent="."]
 emitting = false
-amount = 20
+amount = 40
 one_shot = true
 explosiveness = 0.84
-process_material = SubResource( 7 )
+process_material = SubResource( 6 )
 texture = ExtResource( 4 )
 
 [node name="Die" type="Particles2D" parent="."]
@@ -289,10 +289,10 @@ emitting = false
 amount = 30
 one_shot = true
 explosiveness = 0.78
-process_material = SubResource( 8 )
+process_material = SubResource( 7 )
 texture = ExtResource( 5 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Aim" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 500, 0 )
 

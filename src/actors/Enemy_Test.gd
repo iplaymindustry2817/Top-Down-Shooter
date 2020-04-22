@@ -23,11 +23,10 @@ func _physics_process(delta):
 	var vec_to_player = player.global_position - global_position
 	vec_to_player= vec_to_player.normalized()
 	global_rotation = vec_to_player.angle()
-	if !$RayCast2D.is_colliding():
+	if !$Aim.is_colliding():
 		move_and_collide(vec_to_player * move_speed * delta)
-	if $RayCast2D.is_colliding()and can_fire:
+	if $Aim.is_colliding()and can_fire:
 			shoot()
-	print(vec_to_player)
 	
 func set_player(p):
 	player = p
