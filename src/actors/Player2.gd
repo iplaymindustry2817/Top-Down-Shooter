@@ -158,4 +158,4 @@ func damage(amount):
 		die()
 
 func die():
-	return
+	get_tree().reload_current_scene()

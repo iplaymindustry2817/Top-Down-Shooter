@@ -230,6 +230,8 @@ scale = 0.1
 scale_random = 0.13
 
 [node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="BulletPoint" type="Node2D" parent="."]

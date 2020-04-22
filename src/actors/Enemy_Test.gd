@@ -1,7 +1,7 @@
 extends KinematicBody2D
 export var health: = 100
 onready var Blood_Particles = preload("res://src/objects/blood_effect.tscn")
-var bullet = preload("res://src/objects/Bullet.tscn")
+var bullet = preload("res://src/Screens/EnemyBullet.tscn")
 var Muzzle_Flash = preload("res://src/objects/Muzzle_Flash.tscn")
 var player = null
 export var move_speed: = 100
