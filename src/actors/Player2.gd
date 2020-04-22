@@ -21,6 +21,11 @@ onready var max_ammo: Label = $CanvasLayer/Max_Ammo
 var ammo_type: = 0
 var current_gun: = "pistol"
 var can_switch: = true
+var health: = 100
+
+func _ready():
+	yield(get_tree(), "idle_frame")
+	get_tree().call_group("cops", "set_player", self)
 
 func _process(delta):
 	if Input.is_action_just_pressed("reload"):
@@ -50,6 +55,7 @@ func _process(delta):
 		can_switch = false
 	elif !reloading:
 		can_switch = true
+
 func _physics_process(delta):
 	var direction: = Vector2()
 	if Input.is_action_pressed("up"):
@@ -146,3 +152,10 @@ func fire():
 			can_fire = true
 	shooting = false
 
+func damage(amount):
+	health -= amount
+	if health <= 0:
+		die()
+
+func die():
+	return
