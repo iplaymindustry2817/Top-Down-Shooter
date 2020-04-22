@@ -20,8 +20,11 @@ onready var current_ammo: Label = $CanvasLayer/Current_Ammo
 onready var max_ammo: Label = $CanvasLayer/Max_Ammo
 var ammo_type: = 0
 var current_gun: = "pistol"
+var can_switch: = true
 
 func _process(delta):
+	if Input.is_action_just_pressed("reload"):
+		reload()
 	look_at(get_global_mouse_position())
 	if current_gun == "pistol":
 		current_ammo.text = ("%s") % pistol_ammo
@@ -29,50 +32,24 @@ func _process(delta):
 		current_ammo.text = ("%s") % AR_ammo
 	max_ammo.text = ("%s") % clip_size
 	
-	if Input.is_action_just_pressed("1"):
+	if Input.is_action_just_pressed("1") and can_switch:
 		set_gun(0.3, 5, 1, 20, "pistol")
 		if current_gun == "pistol":
 			if pistol_ammo <= 0:
 				reload()
 		
-	if Input.is_action_just_pressed("2"):
+	if Input.is_action_just_pressed("2") and can_switch:
 		set_gun(0.15, 20, 2, 15, "AR")
 		if current_gun == "AR":
 			if AR_ammo <= 0:
 				reload()
 	if Input.is_action_pressed("fire") and can_fire:
-		shooting = true
-		var BulletI = bullet.instance()
-		BulletI.bullet_damage = damage
-		BulletI.position = $BulletPoint.get_global_position()
-		BulletI.rotation_degrees = rotation_degrees
-		BulletI.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
-		get_tree().get_root().add_child(BulletI)
-		$GunshotSound.play()
-		$Graphics/AnimationPlayer.play("Shoot")
-		var Flash = Muzzle_Flash.instance()
-		Flash.position = $Graphics/Muzzle_Flash.global_position
-		Flash.rotation_degrees = $Graphics/Muzzle_Flash.global_rotation_degrees
-		Flash.emitting = true
-		get_tree().get_root().add_child(Flash)
-		can_fire = false
-		if current_gun == "pistol":
-			pistol_ammo -= 1
-		if current_gun == "AR":
-			AR_ammo -= 1
-		yield(get_tree().create_timer(fire_rate), "timeout")
-		if current_gun == "pistol":
-			if pistol_ammo <= 0:
-				reload()
-			elif pistol_ammo > 0:
-				can_fire = true
-		if current_gun == "AR":
-			if AR_ammo <= 0:
-				reload()
-			elif AR_ammo > 0:
-				can_fire = true
-		shooting = false
-
+		fire()
+		
+	if reloading:
+		can_switch = false
+	elif !reloading:
+		can_switch = true
 func _physics_process(delta):
 	var direction: = Vector2()
 	if Input.is_action_pressed("up"):
@@ -99,15 +76,15 @@ func _physics_process(delta):
 	
 func reload():
 	reloading = true
+	if current_gun == "pistol":
+		pistol_ammo = clip_size
+	if current_gun == "AR":
+		AR_ammo = clip_size
 	can_fire = false
 	$Graphics/AnimationPlayer.play("Reload")
 	$Reload.play()
 	yield(get_tree().create_timer(reload_time), "timeout")
 	can_fire = true
-	if current_gun == "pistol":
-		pistol_ammo = clip_size
-	if current_gun == "AR":
-		AR_ammo = clip_size
 	reloading = false
 	
 func set_gun(fr, clipS, reload, Gdamage, new_gun):
@@ -129,4 +106,36 @@ func set_gun(fr, clipS, reload, Gdamage, new_gun):
 		$CanvasLayer/M4A1.visible = true
 		$CanvasLayer/Glock.visible = false
 	
+func fire():
+	shooting = true
+	var BulletI = bullet.instance()
+	BulletI.bullet_damage = damage
+	BulletI.position = $BulletPoint.get_global_position()
+	BulletI.rotation_degrees = rotation_degrees
+	BulletI.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+	get_tree().get_root().add_child(BulletI)
+	$GunshotSound.play()
+	$Graphics/AnimationPlayer.play("Shoot")
+	var Flash = Muzzle_Flash.instance()
+	Flash.position = $Graphics/Muzzle_Flash.global_position
+	Flash.rotation_degrees = $Graphics/Muzzle_Flash.global_rotation_degrees
+	Flash.emitting = true
+	get_tree().get_root().add_child(Flash)
+	can_fire = false
+	if current_gun == "pistol":
+		pistol_ammo -= 1
+	if current_gun == "AR":
+		AR_ammo -= 1
+	yield(get_tree().create_timer(fire_rate), "timeout")
+	if current_gun == "pistol":
+		if pistol_ammo <= 0:
+			reload()
+		elif pistol_ammo > 0:
+			can_fire = true
+	if current_gun == "AR":
+		if AR_ammo <= 0:
+			reload()
+		elif AR_ammo > 0:
+			can_fire = true
+	shooting = false
 

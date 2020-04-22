@@ -301,3 +301,16 @@ text = "%s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Reload_Prompt" type="Node2D" parent="."]
+visible = false
+
+[node name="Reload_Prompt" type="Label" parent="Reload_Prompt"]
+margin_left = -51.5648
+margin_top = -46.6539
+margin_right = 68.4352
+margin_bottom = -32.6539
+text = "Press \"R\" to reload"
+__meta__ = {
+"_edit_use_anchors_": false
+}

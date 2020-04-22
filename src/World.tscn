@@ -59,6 +59,7 @@ LClick to shoot
 1 for pistol
 2 for Assult Rifle
 Space to dash
+R to Reload
 "
 __meta__ = {
 "_edit_use_anchors_": false
