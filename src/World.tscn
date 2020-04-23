@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/actors/Player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/apartment231GREEN.png" type="Texture" id=4]
 
 [node name="World" type="Node2D"]
@@ -100,3 +101,6 @@ polygon = PoolVector2Array( 633.999, 10.9996, 642.999, -6.00034, 780.998, -8.000
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Kitchen"]
 polygon = PoolVector2Array( 1023.47, 536.72, 711.637, 536.72, 711.637, 611.002, 1028.89, 604.812 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 61.171, 314.865 )
