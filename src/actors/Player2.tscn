@@ -17,7 +17,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.7059
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "Hit"
 length = 0.3
 loop = true
@@ -34,8 +34,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -87,7 +86,7 @@ tracks/3/keys = {
 "values": [ 0.523058 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Head/arm L:z_index")
@@ -162,7 +161,7 @@ tracks/5/keys = {
 "values": [ 0.989225, 11.8678, 0.989225 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -226,7 +225,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1.3507, -29.9408 ), Vector2( 0.470474, -21.1382 ), Vector2( 0.470444, -30.3809 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -254,8 +253,7 @@ tracks/1/keys = {
 "values": [ Vector2( 12.9721, -13.5574 ), Vector2( 12.972, -17.4588 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "AR_Reload"
+[sub_resource type="Animation" id=7]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Relaod_Bar_BG:visible")
@@ -294,7 +292,7 @@ tracks/2/keys = {
 "values": [ Vector2( -56, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Relaod_Bar_BG:visible")
 tracks/0/interp = 1
@@ -332,7 +330,7 @@ tracks/2/keys = {
 "values": [ Vector2( -56, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "SMG_Reload"
 length = 1.5
 tracks/0/type = "value"
@@ -372,8 +370,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "hit"
+[sub_resource type="Animation" id=10]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Hit:visible")
@@ -396,6 +393,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Graphics" type="Node2D" parent="."]
+scale = Vector2( 1.25, 1.25 )
 
 [node name="Head" type="Sprite" parent="Graphics"]
 rotation = 1.5708
@@ -434,11 +432,11 @@ z_index = -1
 texture = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics"]
-anims/Hit = SubResource( 8 )
-anims/Idle = SubResource( 2 )
-anims/Reload = SubResource( 3 )
-anims/Shoot = SubResource( 4 )
-anims/Walk = SubResource( 5 )
+anims/Hit = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Reload = SubResource( 4 )
+anims/Shoot = SubResource( 5 )
+anims/Walk = SubResource( 6 )
 
 [node name="Muzzle_Flash" type="Particles2D" parent="Graphics"]
 position = Vector2( 36.9178, 1.0732 )
@@ -512,10 +510,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-anims/AR_Reload = SubResource( 6 )
-anims/Pistol_Reload = SubResource( 7 )
-anims/SMG_Reload = SubResource( 10 )
-anims/hit = SubResource( 9 )
+anims/AR_Reload = SubResource( 7 )
+anims/Pistol_Reload = SubResource( 8 )
+anims/SMG_Reload = SubResource( 9 )
+anims/hit = SubResource( 10 )
 
 [node name="Relaod_Bar_BG" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 829.978, 437.184 )

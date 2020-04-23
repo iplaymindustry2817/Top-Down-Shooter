@@ -1,55 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/actors/Player2.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/sprites/DownDownTempTiles.png" type="Texture" id=2]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="TileSet" id=2]
-0/name = "DownDownTempTiles.png 0"
-0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 128, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "DownDownTempTiles.png 1"
-1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 192, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
+[ext_resource path="res://assets/sprites/apartment231GREEN.png" type="Texture" id=4]
 
 [node name="World" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
-z_index = -10
-tile_set = SubResource( 2 )
-format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 0, 0, 131072, 0, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 0, 0, 327680, 0, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 515, 300 )
+scale = Vector2( 4, 4 )
+z_index = -100
+texture = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 717.651, 117.537 )
@@ -70,3 +30,73 @@ R to Reload
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HouseCollisions" type="Node2D" parent="."]
+
+[node name="wall1" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/wall1"]
+polygon = PoolVector2Array( 133.641, 542.973, 116.536, 541.344, 117.351, 597.545, 132.826, 597.545 )
+
+[node name="wall2" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/wall2"]
+position = Vector2( 265.832, -499.854 )
+polygon = PoolVector2Array( 137.469, 499.981, 117.525, 502.197, 120.13, 769.907, 134.705, 766.478 )
+
+[node name="wall3" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/wall3"]
+position = Vector2( 265.832, -499.854 )
+polygon = PoolVector2Array( 16.2659, 769.409, 16.3879, 752.76, -261.104, 752.164, -264.62, 769.745 )
+
+[node name="wall4" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/wall4"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( 16.2659, 769.409, 16.3879, 752.76, -262.854, 752.4, -264.62, 769.745 )
+
+[node name="Desk+Wall" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Desk+Wall"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( -423.528, 975.846, -346.181, 975.846, -346.181, 753.627, -507.417, 751.963, -506.876, 768.173, -362.141, 769.587, -363.369, 818.696, -423.528, 818.696 )
+
+[node name="Bathroom+Bed" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Bathroom+Bed"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( -921.267, 979.669, -921.195, 919.354, -802.917, 919.392, -788.951, 902.485, -733.819, 901.75, -734.554, 844.413, -919.797, 845.148, -938.909, 841.472, -938.909, 752.526, -589.742, 751.056, -589.742, 769.434, -713.237, 768.698, -713.237, 826.035, -627.966, 826.771, -625.761, 930.418, -552.987, 930.418, -552.987, 977.464 )
+
+[node name="Couch" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Couch"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( -192.767, 591.27, -192.664, 637.437, -424.165, 638.005, -427.578, 578.282, -408.239, 578.85, -407.67, 586.245, -285.379, 585.676, -285.379, 579.419, -263.764, 578.85, -264.333, 590.226 )
+
+[node name="LivingR_Boxes" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/LivingR_Boxes"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( -565.058, 421.89, -564.323, 486.578, -588.58, 499.074, -590.051, 559.351, -651.798, 560.822, -654.738, 422.625 )
+
+[node name="Boxes_SpareRoom" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Boxes_SpareRoom"]
+position = Vector2( 1055.77, -382.586 )
+polygon = PoolVector2Array( -913.162, 384.468, -911.935, 453.221, -892.291, 456.904, -893.519, 519.518, -909.479, 529.34, -907.024, 590.727, -975.777, 593.182, -977.005, 632.47, -1058.03, 632.47, -1059.26, 375.874 )
+
+[node name="Perimeter" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Perimeter"]
+polygon = PoolVector2Array( 0.534912, 597.119, 1027.14, 595.171, 1023.24, 1.02759, -1.41313, 1.02759, 4.94635, 588.842, -74.0007, 583.578, -83.9981, -117.633, 1145.84, -107.873, 1145.84, 741.3, -80.7446, 738.046, -74.2375, 607.905 )
+
+[node name="TV" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/TV"]
+polygon = PoolVector2Array( 633.999, 10.9996, 642.999, -6.00034, 780.998, -8.00034, 788.998, 9.99959 )
+
+[node name="Kitchen" type="KinematicBody2D" parent="HouseCollisions"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Kitchen"]
+polygon = PoolVector2Array( 1023.47, 536.72, 711.637, 536.72, 711.637, 611.002, 1028.89, 604.812 )

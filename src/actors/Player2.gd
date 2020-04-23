@@ -85,7 +85,7 @@ func _physics_process(delta):
 		speed = 9000
 		yield(get_tree().create_timer(dash_rate - 0.1), "timeout")
 		can_dash = true
-	
+	direction = direction.normalized()
 	move_and_slide(direction * speed * delta)
 	if direction == Vector2.ZERO and !shooting and !reloading:
 		$Graphics/AnimationPlayer.stop()
@@ -197,4 +197,4 @@ func damage(amount):
 		die()
 
 func die():
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene() #200 LINES OF CODE!!!
