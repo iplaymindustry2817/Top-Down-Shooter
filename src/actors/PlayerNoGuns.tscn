@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://PlayerNoGuns.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/PlayerNoGun.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/hand.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/PlayerCursor.png" type="Texture" id=5]
+[ext_resource path="res://src/actors/Hand.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hit"
@@ -204,6 +207,9 @@ tracks/1/keys = {
 "values": [ Vector2( 12.9721, -13.5574 ), Vector2( 12.972, -17.4588 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.97215, 4.25189 )
+
 [node name="PlayerNoGuns" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -241,3 +247,18 @@ anims/Walk = SubResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 20.1522, 5.58894, 20.4025, -3.92413, 15.8963, -13.4372, 6.63362, -19.6958, 6.13295, -29.9599, -0.967026, -34.2198, -8.33965, -28.9876, -8.88768, -19.1951, -15.8973, -11.6848, -19.7553, -4.4915, -19.9931, 4.30807, -15.647, 12.3482, -9.7666, 16.675, -9.05312, 23.0963, -7.3856, 29.3716, -1.12701, 32.1253, 6.38329, 27.6192, 6.38329, 20.6096, 16.1467, 13.0992 )
+
+[node name="Hand" type="Area2D" parent="."]
+position = Vector2( 51.2405, 0 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+shape = SubResource( 6 )
+
+[node name="Hand" type="Sprite" parent="Hand"]
+visible = false
+rotation = 1.5708
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Hand"]
+texture = ExtResource( 5 )

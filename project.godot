@@ -99,6 +99,8 @@ Interact={
 2d_physics/layer_3="World"
 2d_physics/layer_4="EnemBullets"
 2d_physics/layer_5="PlayerBullets"
+2d_physics/layer_6="pickup"
+2d_physics/layer_7="hand"
 
 [rendering]
 
