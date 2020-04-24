@@ -13,6 +13,7 @@ var clip_size: = 5
 var fire_rate: = 0.3
 var reload_time: = 1
 var reloading: = false
+var can_see_player: = false
 
 func _ready():
 	add_to_group("cops")
@@ -22,11 +23,17 @@ func _physics_process(delta):
 		return
 	var vec_to_player = player.global_position - global_position
 	vec_to_player= vec_to_player.normalized()
-	global_rotation = vec_to_player.angle()
 	if !$Aim.is_colliding():
 		move_and_collide(vec_to_player * move_speed * delta)
 	if $Aim.is_colliding()and can_fire:
-			shoot()
+			var collider = $Aim.get_collider()
+			if collider.name == "Player":
+				can_see_player = true
+				shoot()
+			else:
+				can_see_player = false
+	if can_see_player == true:
+		global_rotation = vec_to_player.angle()
 	
 func set_player(p):
 	player = p

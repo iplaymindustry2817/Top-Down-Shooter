@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/actors/PlayerNoGuns.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/Light.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/backyard1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sounds/Tornado_Siren_II-Delilah-747233690.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/backyard1.gd" type="Script" id=5]
+[ext_resource path="res://assets/Sounds/BZZ.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/actors/Alien.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=2]
+resource_name = "BOOM"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/LIGHT:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/LIGHT:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Ring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Glow"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.8, 2.38 ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 171.851
+
+[node name="backyard1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Darkness" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LIGHT" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 515, 300 )
+scale = Vector2( 4, 4 )
+z_index = -10
+texture = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 310.818, 237.431 )
+texture = ExtResource( 2 )
+texture_scale = 7.18
+color = Color( 1, 0, 0, 1 )
+energy = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Glow"
+anims/BOOM = SubResource( 2 )
+anims/Glow = SubResource( 1 )
+
+[node name="PlayerNoGuns" parent="." instance=ExtResource( 1 )]
+position = Vector2( 861.753, 572.288 )
+rotation = -1.54862
+
+[node name="siren" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Ring" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 299.994, 229.865 )
+shape = SubResource( 3 )
+
+[node name="Alien" parent="." instance=ExtResource( 7 )]
+position = Vector2( 224.911, 427.528 )
+rotation = 1.18072
+scale = Vector2( 1.25, 1.25 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="PlayerNoGuns"]

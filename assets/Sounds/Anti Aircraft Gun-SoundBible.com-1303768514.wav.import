@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Anti Aircraft Gun-SoundBible.com-1303768514.wav-4526a0d2fac0529cc4e369ab50c3ad84.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Anti Aircraft Gun-SoundBible.com-1303768514.wav"
+dest_files=[ "res://.import/Anti Aircraft Gun-SoundBible.com-1303768514.wav-4526a0d2fac0529cc4e369ab50c3ad84.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

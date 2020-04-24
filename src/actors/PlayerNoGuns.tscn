@@ -1,0 +1,243 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/Player.png" type="Texture" id=1]
+[ext_resource path="res://PlayerNoGuns.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/PlayerNoGun.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hit"
+length = 0.3
+loop = true
+
+[sub_resource type="Animation" id=2]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/arm_R:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 12.972, -17.4588 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head/arm_R:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.989225 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head/arm L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -11.8018, -14.045 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Head/arm L:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.523058 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/arm L:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head/arm_R:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head/arm L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13.2648, -12.0943 ), Vector2( -8.38805, -15.508 ), Vector2( -9.85106, -12.0943 ), Vector2( -8.38807, -16.9711 ), Vector2( -13.2648, -12.0943 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Head/arm L:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.523058, 8.88611, 8.88611, 8.88611, 0.523058 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Head/arm_R:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.9967, -14.0451 ), Vector2( 14.4351, -15.0204 ), Vector2( 11.9967, -14.0451 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Head/arm_R:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.989225, 11.8678, 0.989225 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/arm L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -12.1919, -11.2165 ), Vector2( -13.1672, -5.36438 ), Vector2( -12.1919, -11.2165 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head/arm_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.7041, -12.6796 ), Vector2( 13.1672, -7.80286 ), Vector2( 11.7041, -12.6796 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/arm L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11.8018, -16.4834 ), Vector2( -11.8018, -14.045 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head/arm_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12.9721, -13.5574 ), Vector2( 12.972, -17.4588 ) ]
+}
+
+[node name="PlayerNoGuns" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Graphics" type="Node2D" parent="."]
+scale = Vector2( 1.25, 1.25 )
+
+[node name="Head" type="Sprite" parent="Graphics"]
+rotation = 1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 44, 16, 32, 32 )
+
+[node name="arm L" type="Sprite" parent="Graphics/Head"]
+position = Vector2( -12.1919, -11.2165 )
+rotation = 0.00912908
+z_index = -1
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 3, 9, 30, 38 )
+
+[node name="arm_R" type="Sprite" parent="Graphics/Head"]
+position = Vector2( 11.7041, -12.6796 )
+rotation = 0.0172652
+z_index = -2
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 90, 5, 30, 41 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics"]
+anims/Hit = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Reload = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
+anims/Walk = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 20.1522, 5.58894, 20.4025, -3.92413, 15.8963, -13.4372, 6.63362, -19.6958, 6.13295, -29.9599, -0.967026, -34.2198, -8.33965, -28.9876, -8.88768, -19.1951, -15.8973, -11.6848, -19.7553, -4.4915, -19.9931, 4.30807, -15.647, 12.3482, -9.7666, 16.675, -9.05312, 23.0963, -7.3856, 29.3716, -1.12701, 32.1253, 6.38329, 27.6192, 6.38329, 20.6096, 16.1467, 13.0992 )

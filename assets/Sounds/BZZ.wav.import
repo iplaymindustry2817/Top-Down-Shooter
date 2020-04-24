@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BZZ.wav-56e7f62d499f2ccedc5bd1a4d710cadf.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/BZZ.wav"
+dest_files=[ "res://.import/BZZ.wav-56e7f62d499f2ccedc5bd1a4d710cadf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

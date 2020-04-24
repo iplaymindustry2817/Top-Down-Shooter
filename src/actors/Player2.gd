@@ -20,6 +20,9 @@ var SMG_ammo: = 30
 onready var current_ammo: Label = $CanvasLayer/Current_Ammo
 onready var max_ammo: Label = $CanvasLayer/Max_Ammo
 onready var healthNum: Label = $CanvasLayer/Health
+onready var pistol_collision: = $Graphics/Head/SMG/Area2D/CollisionShape2D
+onready var SMG_collision: = $Graphics/Head/SMG/Area2D/CollisionShape2D
+onready var M4A1_collision: = $Graphics/Head/M4A1/Area2D/CollisionShape2D
 var ammo_type: = 0
 var current_gun: = "pistol"
 var can_switch: = true
@@ -121,6 +124,9 @@ func set_gun(fr, clipS, reload, Gdamage, new_gun):
 	current_gun = new_gun
 	if new_gun == "pistol":
 		$Graphics/Head/M4A1.visible = false
+		M4A1_collision.disabled = true
+		SMG_collision.disabled = true
+		pistol_collision.disabled = false
 		$Graphics/Head/SMG.visible = false
 		$BulletPoint.position.x = 23.981
 		$Graphics/Muzzle_Flash.position.x = 37.063
@@ -129,6 +135,9 @@ func set_gun(fr, clipS, reload, Gdamage, new_gun):
 		$CanvasLayer/Glock.visible = true
 	if new_gun == "AR":
 		$Graphics/Head/M4A1.visible = true
+		M4A1_collision.disabled = false
+		SMG_collision.disabled = true
+		pistol_collision.disabled = true
 		$Graphics/Head/SMG.visible = false
 		$BulletPoint.position.x = 77.211
 		$Graphics/Muzzle_Flash.position.x = 77.201
@@ -137,6 +146,9 @@ func set_gun(fr, clipS, reload, Gdamage, new_gun):
 		$CanvasLayer/Glock.visible = false
 	if new_gun == "SMG":
 		$Graphics/Head/M4A1.visible = false
+		M4A1_collision.disabled = true
+		SMG_collision.disabled = false
+		pistol_collision.disabled = true
 		$Graphics/Head/SMG.visible = true
 		$BulletPoint.position.x = 51.0
 		$Graphics/Muzzle_Flash.position.x = 51.0

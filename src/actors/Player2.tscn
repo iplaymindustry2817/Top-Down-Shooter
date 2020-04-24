@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player2.gd" type="Script" id=2]
@@ -14,31 +14,25 @@
 [ext_resource path="res://assets/sprites/SMG.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/SMG_side.png" type="Texture" id=13]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 16.7059
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1.68284, 6.4151 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2.66839, 29.5235 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3.15813, 17.236 )
+
+[sub_resource type="Animation" id=1]
 resource_name = "Hit"
 length = 0.3
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("../CanvasLayer/Hit:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Head/arm R:position")
+tracks/0/path = NodePath("Head/arm_R:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -50,7 +44,7 @@ tracks/0/keys = {
 "values": [ Vector2( 12.972, -17.4588 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Head/arm R:rotation_degrees")
+tracks/1/path = NodePath("Head/arm_R:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -86,7 +80,7 @@ tracks/3/keys = {
 "values": [ 0.523058 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Head/arm L:z_index")
@@ -101,7 +95,7 @@ tracks/0/keys = {
 "values": [ -1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Head/arm R:z_index")
+tracks/1/path = NodePath("Head/arm_R:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -137,7 +131,7 @@ tracks/3/keys = {
 "values": [ 0.523058, 8.88611, 8.88611, 8.88611, 0.523058 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Head/arm R:position")
+tracks/4/path = NodePath("Head/arm_R:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -149,7 +143,7 @@ tracks/4/keys = {
 "values": [ Vector2( 11.9967, -14.0451 ), Vector2( 14.4351, -15.0204 ), Vector2( 11.9967, -14.0451 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Head/arm R:rotation_degrees")
+tracks/5/path = NodePath("Head/arm_R:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -161,7 +155,7 @@ tracks/5/keys = {
 "values": [ 0.989225, 11.8678, 0.989225 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -177,7 +171,7 @@ tracks/0/keys = {
 "values": [ Vector2( -12.1919, -11.2165 ), Vector2( -13.1672, -5.36438 ), Vector2( -12.1919, -11.2165 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Head/arm R:position")
+tracks/1/path = NodePath("Head/arm_R:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -200,32 +194,8 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Head/M4A1:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.02386, -47.6092 ), Vector2( 1.02388, -42.3277 ), Vector2( -0.296513, -48.4894 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Head/SMG:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.3507, -29.9408 ), Vector2( 0.470474, -21.1382 ), Vector2( 0.470444, -30.3809 ) ]
-}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -241,7 +211,7 @@ tracks/0/keys = {
 "values": [ Vector2( -11.8018, -16.4834 ), Vector2( -11.8018, -14.045 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Head/arm R:position")
+tracks/1/path = NodePath("Head/arm_R:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -253,7 +223,7 @@ tracks/1/keys = {
 "values": [ Vector2( 12.9721, -13.5574 ), Vector2( 12.972, -17.4588 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Relaod_Bar_BG:visible")
@@ -292,7 +262,7 @@ tracks/2/keys = {
 "values": [ Vector2( -56, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Relaod_Bar_BG:visible")
 tracks/0/interp = 1
@@ -330,8 +300,7 @@ tracks/2/keys = {
 "values": [ Vector2( -56, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "SMG_Reload"
+[sub_resource type="Animation" id=11]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Relaod_Bar_BG/Relaod_Bar_FG:position")
@@ -370,7 +339,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Hit:visible")
@@ -389,9 +358,6 @@ tracks/0/keys = {
 position = Vector2( 132.684, 72.9763 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="Graphics" type="Node2D" parent="."]
 scale = Vector2( 1.25, 1.25 )
 
@@ -409,13 +375,21 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 3, 9, 30, 38 )
 
-[node name="arm R" type="Sprite" parent="Graphics/Head"]
+[node name="arm_R" type="Sprite" parent="Graphics/Head"]
 position = Vector2( 11.7041, -12.6796 )
 rotation = 0.0172652
 z_index = -2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 90, 5, 30, 41 )
+
+[node name="Area2D" type="Area2D" parent="Graphics/Head/arm_R"]
+position = Vector2( -12.6171, -35.5973 )
+rotation = -0.020005
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Head/arm_R/Area2D"]
+position = Vector2( 0.433239, 21.3933 )
+shape = SubResource( 6 )
 
 [node name="M4A1" type="Sprite" parent="Graphics/Head"]
 visible = false
@@ -425,18 +399,32 @@ z_index = -2
 texture = ExtResource( 6 )
 region_rect = Rect2( 90, 5, 30, 41 )
 
+[node name="Area2D" type="Area2D" parent="Graphics/Head/M4A1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Head/M4A1/Area2D"]
+position = Vector2( 0.489754, 0.738983 )
+shape = SubResource( 7 )
+
 [node name="SMG" type="Sprite" parent="Graphics/Head"]
 visible = false
 position = Vector2( 0.470444, -30.3809 )
 z_index = -1
 texture = ExtResource( 12 )
 
+[node name="Area2D" type="Area2D" parent="Graphics/Head/SMG"]
+position = Vector2( -0.76696, -18.1085 )
+rotation = -0.00273978
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Head/SMG/Area2D"]
+position = Vector2( 0.697952, 14.5092 )
+shape = SubResource( 8 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics"]
-anims/Hit = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Reload = SubResource( 4 )
-anims/Shoot = SubResource( 5 )
-anims/Walk = SubResource( 6 )
+anims/Hit = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Reload = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
+anims/Walk = SubResource( 5 )
 
 [node name="Muzzle_Flash" type="Particles2D" parent="Graphics"]
 position = Vector2( 36.9178, 1.0732 )
@@ -510,10 +498,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-anims/AR_Reload = SubResource( 7 )
-anims/Pistol_Reload = SubResource( 8 )
-anims/SMG_Reload = SubResource( 9 )
-anims/hit = SubResource( 10 )
+anims/AR_Reload = SubResource( 9 )
+anims/Pistol_Reload = SubResource( 10 )
+anims/SMG_Reload = SubResource( 11 )
+anims/hit = SubResource( 12 )
 
 [node name="Relaod_Bar_BG" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 829.978, 437.184 )
@@ -541,3 +529,12 @@ __meta__ = {
 current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 42.4327, 2.33447, 42.6831, -1.92137, 32.1687, -2.17171, 17.6487, -23.7012, 9.25951, -29.2254, -0.967026, -34.2198, -8.33965, -28.9876, -10.2422, -17.0963, -19.7553, -4.4915, -19.9931, 4.30807, -9.7666, 16.675, -9.05312, 23.0963, -7.3856, 29.3716, -1.12701, 32.1253, 8.88672, 27.6191, 31.1673, 5.33858, 31.9183, 2.83515 )
+[connection signal="body_entered" from="Graphics/Head/arm_R/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Graphics/Head/arm_R/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Graphics/Head/M4A1/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Graphics/Head/M4A1/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Graphics/Head/SMG/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Graphics/Head/SMG/Area2D" to="." method="_on_Area2D_body_exited"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/Alien.png" type="Texture" id=1]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Head" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 32, 44 )
+
+[node name="L_arm" type="Sprite" parent="Head"]
+position = Vector2( -16.6848, -6.40555 )
+z_index = -1
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 2, 25, 13, 11 )
+
+[node name="R_arm" type="Sprite" parent="Head"]
+position = Vector2( 17.3552, -6.1587 )
+z_index = -1
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 49, 26, 13, 10 )
