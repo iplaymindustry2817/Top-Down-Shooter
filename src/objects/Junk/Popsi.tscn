@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/Junk.png" type="Texture" id=1]
-[ext_resource path="res://src/objects/drink_on_side.gd" type="Script" id=2]
+[ext_resource path="res://src/objects/Junk/Pickup.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 12.75 )
+extents = Vector2( 8.14847, 7.85765 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.25, 12.5 )
+extents = Vector2( 8.25, 7.85765 )
 
-[node name="drink_on_side" type="KinematicBody2D"]
-collision_layer = 32
-collision_mask = 64
+[node name="Popsi" type="KinematicBody2D"]
+collision_layer = 36
+collision_mask = 100
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,7 +21,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 4, 1, 8, 13 )
+region_rect = Rect2( 52, 4, 8, 8 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32

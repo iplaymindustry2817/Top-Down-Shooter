@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/actors/PlayerNoGuns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Brightly Crush Shine.otf" type="DynamicFontData" id=2]
@@ -9,7 +9,13 @@
 [ext_resource path="res://assets/Sounds/Anti Aircraft Gun-SoundBible.com-1303768514.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/Sounds/Tornado_Siren_II-Delilah-747233690.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/backyard1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/objects/drink_on_side.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/objects/Junk/drink_on_side.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/objects/Junk/Popsi_side.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/objects/Junk/Popsi.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/objects/Junk/Drink.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/objects/Junk/crumpled_paper.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/objects/Junk/paper.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/objects/Junk/Flashlight.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -315,8 +321,68 @@ position = Vector2( 890.106, 7.36639 )
 position = Vector2( 53.9997, 9.99996 )
 shape = SubResource( 5 )
 
+[node name="Popsi_side" parent="." instance=ExtResource( 11 )]
+position = Vector2( 619.822, 426.82 )
+rotation = 0.0557723
+
+[node name="Popsi" parent="." instance=ExtResource( 12 )]
+position = Vector2( 655.998, 462.996 )
+rotation = 0.858281
+
+[node name="Popsi2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 655.998, 559.466 )
+rotation = 0.858281
+
+[node name="Popsi_side2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 491.698, 515.753 )
+rotation = 0.858281
+
+[node name="drink" parent="." instance=ExtResource( 13 )]
+position = Vector2( 643.939, 580.569 )
+rotation = -0.37063
+
 [node name="drink_on_side" parent="." instance=ExtResource( 10 )]
 position = Vector2( 578, 197 )
+
+[node name="drink_on_side2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 648.036, 413.403 )
+rotation = -0.37063
+
+[node name="Popsi3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 671, 422 )
+
+[node name="paper" parent="." instance=ExtResource( 15 )]
+position = Vector2( 675, 461 )
+
+[node name="paper2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 882, 275 )
+
+[node name="Crumpled_paper" parent="." instance=ExtResource( 14 )]
+position = Vector2( 267.282, 291.254 )
+rotation = 0.222661
+
+[node name="Crumpled_paper2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 435.969, 338.867 )
+rotation = 0.222661
+
+[node name="Popsi4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 897, 248 )
+rotation = 0.222661
+
+[node name="Popsi5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 820, 313 )
+
+[node name="Flashlight" parent="." instance=ExtResource( 16 )]
+position = Vector2( 518.613, 442.105 )
+rotation = 0.642166
+
+[node name="Popsi6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 854, 282 )
+rotation = 0.724861
+
+[node name="Popsi_side3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 416.39, 277.767 )
+rotation = 0.642166
 [connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
 [connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
