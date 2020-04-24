@@ -7,25 +7,22 @@ var hand
 
 func grab():
 	in_hands = true
-	$Light2D.visible = true
-	if Variable.objectives_finished == 4:
-		Variable.objectives_finished = 5
-		get_parent().update_objective()
-
+	if Variable.objectives_finished == 0:
+		Variable.objectives_finished = 1
 	
 func release():
 	in_hands = false
-	$Light2D.visible = false
-	if Variable.objectives_finished == 5:
-		Variable.objectives_finished = 4
-		get_parent().update_objective()
+	if Variable.objectives_finished == 1:
+		Variable.objectives_finished = 2
+		self.get_parent().update_objective()
+		print("2")
+	$Full.visible = false
+	$Empty.visible = true
 
 func _process(delta):
 	if in_hands == true:
 		collider_position = hand.get_global_position()
 		self.global_position = collider_position
-		self.global_rotation_degrees = hand.get_global_rotation_degrees()
-		self.global_rotation_degrees += 90
 		
 func _on_Area2D_area_entered(body):
 	if body.name == "Hand":

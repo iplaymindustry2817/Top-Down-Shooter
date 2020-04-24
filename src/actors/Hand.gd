@@ -27,11 +27,9 @@ func _process(delta):
 
 func _on_Hand_body_entered(body: PhysicsBody2D):
 	is_colliding += 1
-	print (is_colliding)
 	collider = body
 	collider_layer = body.get_collision_layer()
 
 
 func _on_Hand_body_exited(body):
 	is_colliding -= 1
-	print (is_colliding)
