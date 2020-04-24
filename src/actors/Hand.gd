@@ -6,12 +6,15 @@ var collider_layer
 var has_item: = false
 func _process(delta):
 	if is_colliding and collider_layer >= 2^(6 - 1):
-		$Hand.visible = true
-		$Sprite.visible = false
+		if has_item == false:
+			$Hand.visible = true
+			$Sprite.visible = false
 		if Input.is_action_just_pressed("Interact") and has_item == false:
 			has_item = true
 			collider.grab()
-		if Input.is_action_just_pressed("Interact") and has_item == true:
+			$Hand.visible = false
+			$Sprite.visible = true
+		elif Input.is_action_just_pressed("Interact") and has_item == true:
 			has_item = false
 			collider.release()
 	else:
