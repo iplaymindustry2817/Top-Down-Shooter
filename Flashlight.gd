@@ -16,9 +16,7 @@ func grab():
 func release():
 	in_hands = false
 	$Light2D.visible = false
-	if Variable.objectives_finished == 5:
-		Variable.objectives_finished = 4
-		get_parent().update_objective()
+
 
 func _process(delta):
 	if in_hands == true:

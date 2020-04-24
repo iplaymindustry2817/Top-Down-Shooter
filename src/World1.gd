@@ -10,16 +10,18 @@ func _ready():
 	$CanvasLayer/TalkBox.visible = false
 	yield(get_tree().create_timer(1), "timeout")
 	$CanvasLayer/TalkBox.visible = true
+	$Animation.play("Typewriter")
 	yield(get_tree().create_timer(7), "timeout")
 	$CanvasLayer/Objectives/current.text = "Get something to eat from the kitchen"
 	$CanvasLayer/TalkBox.visible = false
 	$kitchen_light.visible = true
 
 func _process(delta):
-	if player_at_door == true and Input.is_action_just_pressed("Interact") and Variable.objectives_finished == 4:
+	if player_at_door == true and Input.is_action_just_pressed("Interact") and Variable.objectives_finished == 5:
 		if Variable.objectives_finished == 5:
-			Variable.objectives_finished = 6
 			get_tree().change_scene_to(backyard1)
+			Variable.objectives_finished = 6
+		
 	if hand_on_laptop == true and Variable.objectives_finished == 2:
 		print("2 done")
 		if Input.is_action_just_pressed("Interact"):
@@ -32,12 +34,14 @@ func _process(delta):
 			$bed_light.visible = false
 			yield(get_tree().create_timer(3.1), "timeout")
 			$CanvasLayer/TalkBox.visible = true
-			$CanvasLayer/TalkBox/TalkText.text = "Wtf was that?"
+			$CanvasLayer/TalkBox/TalkText.text = "What the heck was that?"
+			$Animation.play("Typewriter")
 			yield(get_tree().create_timer(1.0), "timeout")
 			$Animation.play("FlashingLight")
 			$Siren.play()
 			yield(get_tree().create_timer(3), "timeout")
 			$CanvasLayer/TalkBox/TalkText.text = "I better check it out, I need a flashlight first though"
+			$Animation.play("Typewriter")
 			yield(get_tree().create_timer(6), "timeout")
 			$CanvasLayer/TalkBox.visible = false
 			update_objective()
@@ -69,6 +73,7 @@ func update_objective():
 		$CanvasLayer/Objectives/current.text = ""
 		$CanvasLayer/TalkBox.visible = true
 		$CanvasLayer/TalkBox/TalkText.text = "I need to power off my laptop before I go to bed, didn't realise I left it on all day."
+		$Animation.play("Typewriter")
 		yield(get_tree().create_timer(8), "timeout")
 		$CanvasLayer/Objectives/current.text = "Turn off your laptop"
 		$CanvasLayer/TalkBox.visible = false
@@ -79,6 +84,7 @@ func update_objective():
 		$CanvasLayer/TalkBox.visible = true
 		$CanvasLayer/Objectives/current.text = ""
 		$CanvasLayer/TalkBox/TalkText.text = "Okay, bed time for me, what long day. Damn that Carol, always has to make my life so hard."
+		$Animation.play("Typewriter")
 		yield(get_tree().create_timer(8), "timeout")
 		$CanvasLayer/Objectives/current.text = "Go to bed"
 		$CanvasLayer/TalkBox.visible = false
@@ -87,6 +93,7 @@ func update_objective():
 	if Variable.objectives_finished == 5:
 		$CanvasLayer/TalkBox.visible = true
 		$CanvasLayer/TalkBox/TalkText.text = "Well, here goes nothng."
+		$Animation.play("Typewriter")
 		$CanvasLayer/Objectives/current.text = "Go out the back door"
 		$door_light.visible = true
 	
