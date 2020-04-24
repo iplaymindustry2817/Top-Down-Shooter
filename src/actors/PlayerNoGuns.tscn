@@ -258,7 +258,10 @@ shape = SubResource( 6 )
 [node name="Hand" type="Sprite" parent="Hand"]
 visible = false
 rotation = 1.5708
+z_index = 90
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Hand"]
 texture = ExtResource( 5 )
+[connection signal="body_entered" from="Hand" to="Hand" method="_on_Hand_body_entered"]
+[connection signal="body_exited" from="Hand" to="Hand" method="_on_Hand_body_exited"]
