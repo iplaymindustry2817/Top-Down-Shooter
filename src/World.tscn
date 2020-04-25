@@ -25,14 +25,13 @@
 size = 17
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 54.1109, 85.643 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "FlashingLight"
+[sub_resource type="Animation" id=4]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -84,7 +83,7 @@ tracks/3/keys = {
 "values": [ 0.57, 1.86 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 3.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
@@ -124,7 +123,7 @@ tracks/2/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "Typewriter"
 length = 4.0
 tracks/0/type = "value"
@@ -140,10 +139,10 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 22.8911, 13.3665 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 17.1513, 30.1681 )
 
 [node name="World" type="Node2D"]
@@ -299,7 +298,7 @@ margin_top = -59.0
 margin_right = -194.0
 margin_bottom = -90.0
 rect_scale = Vector2( 0.25, 0.25 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -317,14 +316,14 @@ position = Vector2( 386.731, 508.273 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
 position = Vector2( 12.403, 0.675507 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/FlashingLight = SubResource( 3 )
-anims/Sleep = SubResource( 4 )
-anims/Typewriter = SubResource( 9 )
+anims/FlashingLight = SubResource( 4 )
+anims/Sleep = SubResource( 5 )
+anims/Typewriter = SubResource( 6 )
 
-[node name="Meteorite" type="AudioStreamPlayer2D" parent="."]
+[node name="Meteorite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
 [node name="Siren" type="AudioStreamPlayer" parent="."]
@@ -359,7 +358,7 @@ position = Vector2( 890.106, 7.36639 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 53.9997, 9.99996 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Junk" type="Node" parent="."]
 
@@ -370,17 +369,14 @@ rotation = 0.0557723
 [node name="Popsi" parent="Junk" instance=ExtResource( 12 )]
 position = Vector2( 655.998, 462.996 )
 rotation = 0.858281
-scale = Vector2( 1, 1 )
 
 [node name="Popsi2" parent="Junk" instance=ExtResource( 12 )]
 position = Vector2( 655.998, 559.466 )
 rotation = 0.858281
-scale = Vector2( 1, 1 )
 
 [node name="Popsi_side2" parent="Junk" instance=ExtResource( 11 )]
 position = Vector2( 491.698, 515.753 )
 rotation = 0.858281
-scale = Vector2( 1, 1 )
 
 [node name="drink" parent="Junk" instance=ExtResource( 13 )]
 position = Vector2( 643.939, 580.569 )
@@ -464,7 +460,7 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop"]
 position = Vector2( 2.3833, 4.36938 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 [connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
 [connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

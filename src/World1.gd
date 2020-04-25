@@ -30,18 +30,20 @@ func _process(delta):
 	if player_in_zone == true and Variable.objectives_finished == 3:
 		if Input.is_action_just_pressed("Interact"):
 			$Animation.play("Sleep")
-			Variable.objectives_finished = 4
 			$bed_light.visible = false
 			yield(get_tree().create_timer(3.1), "timeout")
+			Variable.objectives_finished = 4
 			$CanvasLayer/TalkBox.visible = true
+			$Meteorite.play()
 			$CanvasLayer/TalkBox/TalkText.text = "What the heck was that?"
 			$Animation.play("Typewriter")
-			yield(get_tree().create_timer(1.0), "timeout")
+			yield(get_tree().create_timer(4.1), "timeout")
 			$Animation.play("FlashingLight")
 			$Siren.play()
 			yield(get_tree().create_timer(3), "timeout")
 			$CanvasLayer/TalkBox/TalkText.text = "I better check it out, I need a flashlight first though"
 			$Animation.play("Typewriter")
+			$Animation.play("FlashingLight")
 			yield(get_tree().create_timer(6), "timeout")
 			$CanvasLayer/TalkBox.visible = false
 			update_objective()
@@ -94,6 +96,7 @@ func update_objective():
 		$CanvasLayer/TalkBox.visible = true
 		$CanvasLayer/TalkBox/TalkText.text = "Well, here goes nothng."
 		$Animation.play("Typewriter")
+		$Animation.play("FlashingLight")
 		$CanvasLayer/Objectives/current.text = "Go out the back door"
 		$door_light.visible = true
 	
