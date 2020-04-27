@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Screens/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://src/World.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Brightly Crush Shine.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
 game = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 425.713
-margin_top = 289.389
-margin_right = 569.713
-margin_bottom = 303.389
-text = "PRESS SPACE TO START"
+margin_left = 29.9593
+margin_top = 217.62
+margin_right = 984.959
+margin_bottom = 268.62
+custom_fonts/font = SubResource( 1 )
+text = "WARNING: This game may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised. 
+PRESS SPACE TO START"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

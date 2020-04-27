@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/actors/PlayerNoGuns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Brightly Crush Shine.otf" type="DynamicFontData" id=2]
@@ -15,11 +15,12 @@
 [ext_resource path="res://src/objects/Junk/Drink.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/objects/Junk/crumpled_paper.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/objects/Junk/paper.tscn" type="PackedScene" id=15]
-[ext_resource path="res://src/objects/Junk/Flashlight.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/objects/Junk/Sandwich.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/sprites/Light.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/chatBox.png" type="Texture" id=19]
 [ext_resource path="res://assets/sprites/Objective_box.png" type="Texture" id=20]
+[ext_resource path="res://src/objects/Box.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/objects/Box_empty.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -146,6 +147,7 @@ extents = Vector2( 22.8911, 13.3665 )
 extents = Vector2( 17.1513, 30.1681 )
 
 [node name="World" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 6 )
 backyard1 = ExtResource( 9 )
 
@@ -215,12 +217,6 @@ polygon = PoolVector2Array( -921.267, 979.669, -921.195, 919.354, -802.917, 919.
 position = Vector2( 1055.77, -382.586 )
 polygon = PoolVector2Array( -192.767, 591.27, -192.664, 637.437, -424.165, 638.005, -427.578, 578.282, -408.239, 578.85, -407.67, 586.245, -285.379, 585.676, -285.379, 579.419, -263.764, 578.85, -264.333, 590.226 )
 
-[node name="LivingR_Boxes" type="KinematicBody2D" parent="HouseCollisions"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/LivingR_Boxes"]
-position = Vector2( 1055.77, -382.586 )
-polygon = PoolVector2Array( -565.058, 421.89, -564.323, 486.578, -588.58, 499.074, -590.051, 559.351, -651.798, 560.822, -654.738, 422.625 )
-
 [node name="Boxes_SpareRoom" type="KinematicBody2D" parent="HouseCollisions"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseCollisions/Boxes_SpareRoom"]
@@ -243,6 +239,7 @@ polygon = PoolVector2Array( 633.999, 10.9996, 642.999, -6.00034, 780.998, -8.000
 polygon = PoolVector2Array( 1023.47, 536.72, 711.637, 536.72, 711.637, 611.002, 1028.89, 604.812 )
 
 [node name="PlayerNoGuns" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
 position = Vector2( 62.1096, 572.473 )
 rotation = -1.51524
 
@@ -331,6 +328,7 @@ stream = ExtResource( 8 )
 volume_db = -25.732
 
 [node name="Light2D2" type="Light2D" parent="."]
+visible = false
 position = Vector2( 942.899, 100.674 )
 rotation = -1.55931
 texture = ExtResource( 3 )
@@ -339,6 +337,7 @@ color = Color( 1, 0, 0, 1 )
 energy = 0.57
 
 [node name="Light2D3" type="Light2D" parent="."]
+visible = false
 position = Vector2( 565.985, 169.427 )
 rotation = -1.55931
 texture = ExtResource( 3 )
@@ -348,10 +347,6 @@ energy = 0.57
 
 [node name="Sandwich" parent="." instance=ExtResource( 17 )]
 position = Vector2( 755.742, 478.018 )
-
-[node name="Flashlight" parent="." instance=ExtResource( 16 )]
-position = Vector2( 518.613, 442.105 )
-rotation = 0.642166
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 890.106, 7.36639 )
@@ -403,7 +398,7 @@ position = Vector2( 267.282, 291.254 )
 rotation = 0.222661
 
 [node name="Crumpled_paper2" parent="Junk" instance=ExtResource( 14 )]
-position = Vector2( 435.969, 338.867 )
+position = Vector2( 432.645, 337.759 )
 rotation = 0.222661
 
 [node name="Popsi4" parent="Junk" instance=ExtResource( 14 )]
@@ -461,6 +456,27 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laptop"]
 position = Vector2( 2.3833, 4.36938 )
 shape = SubResource( 8 )
+
+[node name="Box" parent="." instance=ExtResource( 21 )]
+position = Vector2( 426.462, 151.483 )
+
+[node name="item_point" parent="Box" index="7"]
+position = Vector2( -2.1629, -2.25469 )
+
+[node name="Box_empty" parent="." instance=ExtResource( 22 )]
+position = Vector2( 438.752, 98.3074 )
+rotation = 0.201876
+
+[node name="Box_empty2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 436.031, 38.4509 )
+rotation = -0.193458
+
+[node name="Box_empty3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 995.146, 106.47 )
+
+[node name="Box_empty4" parent="." instance=ExtResource( 22 )]
+position = Vector2( 993.785, 164.966 )
+rotation = -0.14416
 [connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
 [connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
@@ -469,3 +485,5 @@ shape = SubResource( 8 )
 [connection signal="area_exited" from="Laptop" to="." method="_on_Laptop_area_exited"]
 
 [editable path="PlayerNoGuns"]
+
+[editable path="Box"]

@@ -10,8 +10,8 @@ extents = Vector2( 10.019, 12.8091 )
 extents = Vector2( 10.129, 13.2492 )
 
 [node name="paper" type="KinematicBody2D"]
-collision_layer = 36
-collision_mask = 100
+collision_layer = 32
+collision_mask = 96
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

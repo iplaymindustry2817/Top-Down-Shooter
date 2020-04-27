@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/PlayerNoGuns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Light.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/backyard1.png" type="Texture" id=3]
-[ext_resource path="res://assets/Sounds/Tornado_Siren_II-Delilah-747233690.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Brightly Crush Shine.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/backyard1.gd" type="Script" id=5]
 [ext_resource path="res://assets/Sounds/BZZ.wav" type="AudioStream" id=6]
-[ext_resource path="res://src/actors/Alien.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/chatBox.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Objective_box.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/PlayerProfile.png" type="Texture" id=9]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "BOOM"
 length = 6.0
 tracks/0/type = "value"
@@ -50,8 +52,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Glow"
+[sub_resource type="Animation" id=2]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -69,6 +70,13 @@ tracks/0/keys = {
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 171.851
+
+[sub_resource type="DynamicFont" id=4]
+size = 17
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
 
 [node name="backyard1" type="Node2D"]
 script = ExtResource( 5 )
@@ -106,16 +114,12 @@ energy = 0.8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Glow"
-anims/BOOM = SubResource( 2 )
-anims/Glow = SubResource( 1 )
+anims/BOOM = SubResource( 1 )
+anims/Glow = SubResource( 2 )
 
 [node name="PlayerNoGuns" parent="." instance=ExtResource( 1 )]
 position = Vector2( 861.753, 572.288 )
 rotation = -1.54862
-
-[node name="siren" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-autoplay = true
 
 [node name="Ring" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -126,10 +130,56 @@ stream = ExtResource( 6 )
 position = Vector2( 299.994, 229.865 )
 shape = SubResource( 3 )
 
-[node name="Alien" parent="." instance=ExtResource( 7 )]
-position = Vector2( 224.911, 427.528 )
-rotation = 1.18072
-scale = Vector2( 1.25, 1.25 )
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="TalkBox" type="Sprite" parent="CanvasLayer2"]
+visible = false
+position = Vector2( 515, 300 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+
+[node name="TalkText" type="Label" parent="CanvasLayer2/TalkBox"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -90.75
+margin_top = 44.0
+margin_right = 759.25
+margin_bottom = 128.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 4 )
+text = "Another day, another dollar. I guess I should get something to eat before I go to bed. 
+(WASD to move, E to interact)
+"
+autowrap = true
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerProfile" type="Sprite" parent="CanvasLayer2/TalkBox"]
+position = Vector2( -110.937, 56.4255 )
+scale = Vector2( 0.362939, 0.374863 )
+texture = ExtResource( 9 )
+
+[node name="Objectives" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 515, 300 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="current" type="Label" parent="CanvasLayer2/Objectives"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -124.0
+margin_top = -59.0
+margin_right = -194.0
+margin_bottom = -90.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 5 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [editable path="PlayerNoGuns"]

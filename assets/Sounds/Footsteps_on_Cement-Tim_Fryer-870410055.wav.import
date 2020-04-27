@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps_on_Cement-Tim_Fryer-870410055.wav-bae38414f6115afa8e754dad6c6b12a8.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Footsteps_on_Cement-Tim_Fryer-870410055.wav"
+dest_files=[ "res://.import/Footsteps_on_Cement-Tim_Fryer-870410055.wav-bae38414f6115afa8e754dad6c6b12a8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

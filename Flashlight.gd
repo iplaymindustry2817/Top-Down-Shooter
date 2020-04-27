@@ -8,10 +8,7 @@ var hand
 func grab():
 	in_hands = true
 	$Light2D.visible = true
-	if Variable.objectives_finished == 4:
-		Variable.objectives_finished = 5
-		get_parent().update_objective()
-
+	
 	
 func release():
 	in_hands = false

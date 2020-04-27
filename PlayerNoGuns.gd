@@ -3,6 +3,7 @@ extends KinematicBody2D
 var can_dash: = false
 var speed: = 9000
 var dash_rate: = 1.0
+var playsteps: = false
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
@@ -24,3 +25,7 @@ func _physics_process(delta):
 		can_dash = true
 	direction = direction.normalized()
 	move_and_slide(direction * speed * delta)
+	
+
+
+

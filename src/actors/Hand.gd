@@ -12,15 +12,22 @@ func _process(delta):
 			$Hand.visible = true
 			$Sprite.visible = false
 		if Input.is_action_just_pressed("Interact") and has_item == false:
-			holding = collider
-			collider.grab()
-			has_item = true
-			$Hand.visible = false
-			$Sprite.visible = true
+			if collider.name != "Box" and collider.name != "Box_empty":
+				holding = collider
+				collider.grab()
+				has_item = true
+				$Hand.visible = false
+				$Sprite.visible = true
+				if collider.name == "Flashlight" and Variable.objectives_finished == 4:
+					Variable.objectives_finished = 5
+					get_parent().get_parent().update_objective()
+					
 		elif Input.is_action_just_pressed("Interact") and has_item == true:
 			holding.release()
 			has_item = false
-			
+	elif is_colliding and collider_layer >= 2 ^(8 - 1):
+		$Hand.visible = true
+		$Sprite.visible = false
 	else:
 		$Hand.visible = false
 		$Sprite.visible = true

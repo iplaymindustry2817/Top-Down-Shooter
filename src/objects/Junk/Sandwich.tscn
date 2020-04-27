@@ -10,8 +10,8 @@ extents = Vector2( 15.8507, 15.89 )
 extents = Vector2( 16.0707, 16.2201 )
 
 [node name="Sandwich" type="KinematicBody2D"]
-collision_layer = 36
-collision_mask = 100
+collision_layer = 32
+collision_mask = 96
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
