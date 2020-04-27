@@ -18,6 +18,7 @@ func release():
 		print("2")
 	$Full.visible = false
 	$Empty.visible = true
+	$eat.play()
 
 func _process(delta):
 	if in_hands == true:

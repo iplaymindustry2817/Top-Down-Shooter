@@ -3,7 +3,7 @@ extends KinematicBody2D
 var can_dash: = false
 var speed: = 9000
 var dash_rate: = 1.0
-var playsteps: = false
+var playsteps: = true
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
@@ -26,6 +26,13 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	move_and_slide(direction * speed * delta)
 	
+	if direction == Vector2.ZERO:
+		$footsteps.stop()
+	elif playsteps == true:
+		$footsteps.play()
+		playsteps = false
+		yield($footsteps, "finished")
+		playsteps = true
 
 
 

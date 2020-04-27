@@ -15,6 +15,7 @@ func _ready():
 	$CanvasLayer/Objectives/current.text = "Get something to eat from the kitchen"
 	$CanvasLayer/TalkBox.visible = false
 	$kitchen_light.visible = true
+	$lightswitch.play()
 
 func _process(delta):
 	if player_at_door == true and Input.is_action_just_pressed("Interact") and Variable.objectives_finished == 5:
@@ -84,9 +85,11 @@ func update_objective():
 		$CanvasLayer/Objectives/current.text = "Turn off your laptop"
 		$CanvasLayer/TalkBox.visible = false
 		$kitchen_light.visible = false
+		$lightswitch.play()
 		$bed_light.visible = true
 	if Variable.objectives_finished == 3:
 		$laptop_light.visible = false
+		$laptop_off.play()
 		$CanvasLayer/TalkBox.visible = true
 		$CanvasLayer/Objectives/current.text = ""
 		pause_mode = true
@@ -108,4 +111,5 @@ func update_objective():
 		pause_mode = false
 		$CanvasLayer/Objectives/current.text = "Go out the back door"
 		$door_light.visible = true
+		$lightswitch.play()
 	

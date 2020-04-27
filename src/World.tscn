@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/actors/PlayerNoGuns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Brightly Crush Shine.otf" type="DynamicFontData" id=2]
@@ -15,12 +15,14 @@
 [ext_resource path="res://src/objects/Junk/Drink.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/objects/Junk/crumpled_paper.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/objects/Junk/paper.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/Sounds/Lightswitch.wav" type="AudioStream" id=16]
 [ext_resource path="res://src/objects/Junk/Sandwich.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/sprites/Light.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/chatBox.png" type="Texture" id=19]
 [ext_resource path="res://assets/sprites/Objective_box.png" type="Texture" id=20]
 [ext_resource path="res://src/objects/Box.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/objects/Box_empty.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/Sounds/laptop button.wav" type="AudioStream" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -477,6 +479,12 @@ position = Vector2( 995.146, 106.47 )
 [node name="Box_empty4" parent="." instance=ExtResource( 22 )]
 position = Vector2( 993.785, 164.966 )
 rotation = -0.14416
+
+[node name="lightswitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="laptop_off" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
 [connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
 [connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
