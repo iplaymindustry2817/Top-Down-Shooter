@@ -11,7 +11,7 @@ func _ready():
 	yield(get_tree().create_timer(1), "timeout")
 	$CanvasLayer/TalkBox.visible = true
 	$Animation.play("Typewriter")
-	yield(get_tree().create_timer(7), "timeout")
+	yield(get_tree().create_timer(10), "timeout")
 	$CanvasLayer/Objectives/current.text = "Get something to eat from the kitchen"
 	$CanvasLayer/TalkBox.visible = false
 	$kitchen_light.visible = true
@@ -39,7 +39,6 @@ func _process(delta):
 			pause_mode = true
 			$CanvasLayer/TalkBox/TalkText.text = "What the heck was that?"
 			Variable.actionMusic == true
-			$Animation.play("Typewriter")
 			yield(get_tree().create_timer(4.1), "timeout")
 			$Animation.play("FlashingLight")
 			yield(get_tree().create_timer(3), "timeout")

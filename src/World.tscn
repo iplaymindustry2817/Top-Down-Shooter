@@ -271,7 +271,7 @@ margin_bottom = 128.0
 rect_scale = Vector2( 0.25, 0.25 )
 custom_fonts/font = SubResource( 1 )
 text = "Another day, another dollar. I guess I should get something to eat before I go to bed. 
-(WASD to move, E to interact)
+(WASD to move, R-click to pick up, F to interact)
 "
 autowrap = true
 percent_visible = 0.0
