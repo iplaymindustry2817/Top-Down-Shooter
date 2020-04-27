@@ -14,7 +14,6 @@ func release():
 	in_hands = false
 	if Variable.objectives_finished == 1:
 		Variable.objectives_finished = 2
-		self.get_parent().update_objective()
 		print("2")
 	$Full.visible = false
 	$Empty.visible = true

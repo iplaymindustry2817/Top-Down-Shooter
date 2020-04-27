@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fridge.png-17cdf390f90b9376a8d7809afed641f6.stex"
+path="res://.import/fridge_open.png-aedf80d8d37d288e9901470447f38471.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Fridge.png"
-dest_files=[ "res://.import/Fridge.png-17cdf390f90b9376a8d7809afed641f6.stex" ]
+source_file="res://assets/sprites/fridge_open.png"
+dest_files=[ "res://.import/fridge_open.png-aedf80d8d37d288e9901470447f38471.stex" ]
 
 [params]
 
