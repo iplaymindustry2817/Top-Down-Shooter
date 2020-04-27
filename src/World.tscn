@@ -460,7 +460,7 @@ position = Vector2( 2.3833, 4.36938 )
 shape = SubResource( 8 )
 
 [node name="Box" parent="." instance=ExtResource( 21 )]
-position = Vector2( 426.462, 151.483 )
+position = Vector2( 994.463, 161.483 )
 
 [node name="item_point" parent="Box" index="7"]
 position = Vector2( -2.1629, -2.25469 )
@@ -477,7 +477,7 @@ rotation = -0.193458
 position = Vector2( 995.146, 106.47 )
 
 [node name="Box_empty4" parent="." instance=ExtResource( 22 )]
-position = Vector2( 993.785, 164.966 )
+position = Vector2( 431.784, 159.966 )
 rotation = -0.14416
 
 [node name="lightswitch" type="AudioStreamPlayer" parent="."]

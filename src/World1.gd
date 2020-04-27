@@ -43,7 +43,7 @@ func _process(delta):
 			yield(get_tree().create_timer(4.1), "timeout")
 			$Animation.play("FlashingLight")
 			yield(get_tree().create_timer(3), "timeout")
-			$CanvasLayer/TalkBox/TalkText.text = "I better check it out, I need a flashlight first though"
+			$CanvasLayer/TalkBox/TalkText.text = "I better check it out, I need a flashlight first though. It's gotta be in one of those boxes"
 			$Animation.play("Typewriter")
 			$Animation.play("FlashingLight")
 			yield(get_tree().create_timer(6), "timeout")
